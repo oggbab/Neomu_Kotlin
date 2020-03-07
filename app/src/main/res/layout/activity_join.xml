@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBCE02"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".app.main.JoinActivity">
+
+    <TextView
+        style="@style/tv_join_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/tv_join_nickName"
+            style="@style/main_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:textColor="#012038"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:foregroundTint="#FBCE02"
+            android:hint="닉네임" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/tv_join_email"
+            style="@style/main_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:textColor="#012038"
+            android:hint="이메일"
+            android:inputType="textEmailAddress" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/tv_join_pw"
+            style="@style/main_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:hint="비밀번호"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:textColor="#012038"
+            android:inputType="textPassword" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/tv_join_pw2"
+            style="@style/main_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:textColor="#012038"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:hint="비밀번호 재입력"
+            android:inputType="textPassword" />
+
+
+        <RadioGroup
+            android:id="@+id/rg_join_gender"
+            style="@style/radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:theme="@style/AppTheme">
+
+
+            <!--성별-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textColor="#012038"
+                android:fontFamily="@font/serif_b"
+                android:text="Gender:" />
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:checked="true"
+                android:buttonTint="#012038"
+                android:textColor="#012038"
+                android:fontFamily="@font/serif_b"
+                android:text="남자" />
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:fontFamily="@font/serif_b"
+                android:buttonTint="#012038"
+                android:textColor="#012038"
+                android:text="여자" />
+
+        </RadioGroup>
+
+
+        <!--생년월일-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <NumberPicker
+                android:id="@+id/picker_year"
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:fontFamily="@font/serif_b"
+               />
+
+            <NumberPicker
+                android:id="@+id/picker_month"
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:fontFamily="@font/serif_b"
+                />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_join"
+            style="@style/main_loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_btn"
+            android:text="회원 가입" />
+
+    </LinearLayout>
+
+</LinearLayout>

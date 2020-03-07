@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app.neomu_kotlin">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_new"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_new_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustResize"
+        android:launchMode="singleTask"
+        >
+        <activity android:name="com.not.app.main.SpalshActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.not.app.main.LoginActivity"/>
+        <activity android:name="com.not.app.main.AuthActivity"/>
+        <activity android:name="com.not.app.main.JoinActivity"/>
+        <activity android:name="com.not.app.club.Club_New_Activity"/>
+        <activity android:name="com.not.app.club.MainActivity"/>
+        <activity android:name="com.not.app.club.PostDetailActivity"/>
+        <activity android:name="com.not.app.chat.ChatActivity"/>
+        <activity android:name="com.not.app.mypage.MypageActivity" />
+        <activity android:name="com.not.app.map.MapsActivity"/>
+        <activity android:name="com.not.app.map.MapyActivity"/>
+        <activity android:name="com.not.app.search.SearchActivity"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+    </application>
+</manifest>
