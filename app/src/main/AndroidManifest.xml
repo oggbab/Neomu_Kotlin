@@ -24,12 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.not.app.main.LoginActivity"/>
-        <activity android:name="com.not.app.main.AuthActivity"/>
-        <activity android:name="com.not.app.main.JoinActivity"/>
+        <activity android:name="neomu.kotlin.app.main.LoginActivity"/>
+        <activity android:name=".app.main.activity.AuthActivity"/>
+        <activity android:name="neomu.kotlin.app.main.JoinActivity"/>
         <activity android:name="com.not.app.club.Club_New_Activity"/>
-        <activity android:name="com.not.app.club.MainActivity"/>
-        <activity android:name="com.not.app.club.PostDetailActivity"/>
+        <activity android:name=".app.club.activity.MainActivity"/>
+        <activity android:name=".app.club.activity.PostDetailActivity"/>
         <activity android:name="com.not.app.chat.ChatActivity"/>
         <activity android:name="com.not.app.mypage.MypageActivity" />
         <activity android:name="com.not.app.map.MapsActivity"/>
