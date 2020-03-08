@@ -6,5 +6,4 @@ data class UserInfoModel (
         var gender: String,
         var birth: String
 ) {
-
 }
