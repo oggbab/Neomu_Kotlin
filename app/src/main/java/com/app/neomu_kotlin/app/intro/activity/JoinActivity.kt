@@ -8,13 +8,14 @@ import com.app.neomu_kotlin.app.main.model.UserInfoModel
 import com.app.neomu_kotlin.common.constanse.CommonConstance
 import com.google.firebase.database.FirebaseDatabase
 import com.app.neomu_kotlin.common.activity.BaseActivity
+import com.app.neomu_kotlin.common.constanse.FirebaseDbConstance
 import kotlinx.android.synthetic.main.activity_join.*
 import kotlinx.android.synthetic.main.activity_login.*
 import neomu.kotlin.common.constanse.ValidationConstance
 import neomu.kotlin.common.util.ValidationUtil.Companion.isSuccessSignInFirebaseAuth
 import org.jetbrains.anko.toast
 
-class JoinActivity : BaseActivity(), View.OnClickListener {
+class JoinActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class JoinActivity : BaseActivity(), View.OnClickListener {
     fun addNewAccoutInFirebase() {
         var userInfoModel = UserInfoModel(getUserNickNameForJoin(), getUserEmailForJoin(), getUserGenderForJoin(), getUserBirthForJoin())
         val firebaseDbReference = FirebaseDatabase.getInstance().getReference()
-        firebaseDbReference.child(CommonConstance.FIREBASE_DB_CULUMS_USER).setValue(userInfoModel)
+        firebaseDbReference.child(FirebaseDbConstance.FIREBASE_DB_CULUMS_USER).setValue(userInfoModel)
     }
 
 

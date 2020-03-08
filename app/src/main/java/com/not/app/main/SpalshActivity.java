@@ -31,7 +31,9 @@ public class SpalshActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        relativeLayout = findViewById(R.id.rel_splash);
+        relativeLayout = findV
+    \
+        `iewById(R.id.rel_splash);
         firebaseRemoteControll();
     }
 

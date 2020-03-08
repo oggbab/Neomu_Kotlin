@@ -2,7 +2,7 @@ package com.app.neomu_kotlin.app.main.activity
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.app_kt.R
+import com.app.neomu_kotlin.R
 import com.app.neomu_kotlin.common.constanse.CommonConstance
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -51,7 +51,6 @@ class AuthActivity : BaseActivity() {
     }
 
     private fun onFirebaseAuthWithGoogle(account: GoogleSignInAccount) {
-        val cre
     }
 
 }

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import com.example.app_kt.R
+import com.app.neomu_kotlin.R
 import com.app.neomu_kotlin.app.main.activity.AuthActivity
 import com.app.neomu_kotlin.common.activity.BaseActivity
 import neomu.kotlin.common.util.ValidationUtil
@@ -13,7 +13,7 @@ import neomu.kotlin.common.util.ValidationUtilListener
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
-class LoginActivity: BaseActivity(), View.OnClickListener {
+class LoginActivity: BaseActivity() {
 
     lateinit var forInvalidChecklist : MutableList<String>
     lateinit var accountTextMap : MutableMap<String, String>

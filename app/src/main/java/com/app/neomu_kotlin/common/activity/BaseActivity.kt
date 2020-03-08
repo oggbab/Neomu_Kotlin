@@ -1,19 +1,21 @@
 package com.app.neomu_kotlin.common.activity
 
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
+import com.app.neomu_kotlin.R
 import com.app.neomu_kotlin.common.constanse.CommonConstance
 import com.google.firebase.auth.FirebaseAuth
 import com.not.app.club.NearFragment
 import com.not.app.club.NewFragment
 import com.not.app.club.PopularFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
-open class BaseActivity : AppCompatActivity() {
-
-    lateinit var firebaseAuth : FirebaseAuth
+open class BaseActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,44 +25,6 @@ open class BaseActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
-    fun setCustomToolbar() {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(tool)
+    override fun onClick(view: View?) {
     }
-
-    fun addFragment() {
-
-    }
-
-    fun getFragmentPagerAdapter(): FragmentPagerAdapter {
-        val fragmentPagerAdapter = object: FragmentPagerAdapter(supportFragmentManager) {
-            val fragmentArray = arrayListOf<Fragment>(
-                    PopularFragment(), NewFragment(), NearFragment()
-            )
-
-            val fragmentName = arrayListOf<String>(
-                    CommonConstance.FRAGMENT_TAB_NAME_POPULAR,
-                    CommonConstance.FRAGMENT_TAB_NAME_NEW,
-                    CommonConstance.FRAGMENT_TAB_NAME_NEAR)
-
-            override fun getItem(position: Int): Fragment {
-                return fragmentArray[position]
-            }
-
-            override fun getCount(): Int {
-                return fragmentArray.size
-            }
-
-            override fun getPageTitle(position: Int): CharSequence? {
-                return fragmentName[position]
-            }
-
-        }
-        return fragmentPagerAdapter
-    }
-
-    companion object {
-
-    }
-
 }

@@ -1,18 +1,23 @@
 package neomu.kotlin.common.fragment
 
 import android.content.Context
+import android.view.View
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.Query
 import neomu.kotlin.common.util.FirebaseUtil
 import neomu.kotlin.common.util.FirebaseUtilImpl
 
-class BaseFragment : Fragment(), FirebaseUtilImpl {
+open class BaseFragment : Fragment(), View.OnClickListener {
 
-    lateinit var mFirebaseUtil: FirebaseUtil
-
-    override fun getFirebaseUserId(): String? {
-        return mFirebaseUtil.getFirebaseUserId()
+    override fun onResume() {
+        super.onResume()
     }
 
+    override fun onStop() {
+        super.onStop()
+    }
 
-
+    override fun onClick(view: View?) {
+    }
 }

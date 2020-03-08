@@ -1,9 +1,10 @@
 package com.not.common
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,5 +18,6 @@ class BaseActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
-
+    override fun onClick(view: View?) {
+    }
 }
