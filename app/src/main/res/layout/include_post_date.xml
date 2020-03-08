@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/tv_postDate"
+        android:id="@+id/tv_post_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -20,7 +20,7 @@
         />
 
     <TextView
-        android:id="@+id/tv_postTime"
+        android:id="@+id/tv_post_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"

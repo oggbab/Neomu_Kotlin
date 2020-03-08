@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/tv_postPrice"
+        android:id="@+id/tv_post_price"
         style="style/club_new_title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -23,7 +23,7 @@
         tools:text="#2만원" />
 
     <TextView
-        android:id="@+id/tv_postPeople"
+        android:id="@+id/tv_post_people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -39,7 +39,7 @@
         />
 
     <TextView
-        android:id="@+id/tv_postLocation"
+        android:id="@+id/tv_post_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
