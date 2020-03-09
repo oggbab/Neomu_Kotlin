@@ -38,6 +38,8 @@ class PostDetailActivity : BaseActivity() {
         if (isListener) {
             setCommentAdapter()
         }
+
+        setPostComment()
         return super.onCreateView(name, context, attrs)
 
     }
@@ -60,7 +62,7 @@ class PostDetailActivity : BaseActivity() {
 
             override fun onDataChange(dataSnapshop: DataSnapshot) {
                 Log.v("soon2", "PostDetailActivity onDataChange")
-                var post = dataSnapshop.getValue(Post::class.java)
+                var post = dataSnapshop.getValue(PostModel::class.java)
                 if (post != null) {
                     setPostContent(post)
                     isListener = true
@@ -107,7 +109,7 @@ class PostDetailActivity : BaseActivity() {
     }
 
     private fun setPostComment() {
-        var reference = FirebaseUtil.getDatabaseReferenceInPostComment(userId)
+        var reference = FirebaseUtil.getDatabaseReferenceInPostChildUser(userId)
         reference?.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
                 Log.e("soon2", "post comment listener canceled: " + error.message)
@@ -125,6 +127,7 @@ class PostDetailActivity : BaseActivity() {
         var author = User.getNickName()
         var commentModel = CommentModel(userId, author, commentText)
         var mCommentsReference = FirebaseUtil.getDatabaseReferenceInPostComment()
+        mCommentsReference?.push()?.setValue(commentModel)
     }
 
 }

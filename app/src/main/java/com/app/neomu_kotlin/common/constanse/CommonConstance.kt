@@ -12,5 +12,8 @@ open class CommonConstance {
 
         //Auth Activity
         val GOOGLE_SIGN_IN_API_REQUEST_CODE = 1000
+
+        //Club Activity
+        const val ERROR_MSG_EMPTY_INPUT = "공백을 입력해주세요"
     }
 }
