@@ -7,17 +7,16 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import com.app.neomu_kotlin.R
+import com.app.neomu_kotlin.app.club.fragment.NearFragment
+import com.app.neomu_kotlin.app.club.fragment.NewFragment
+import com.app.neomu_kotlin.app.club.fragment.PopularFragment
 import com.app.neomu_kotlin.common.activity.BaseActivity
-import com.app.neomu_kotlin.common.constanse.CommonConstance
-import com.not.app.club.NearFragment
-import com.not.app.club.NewFragment
-import com.not.app.club.PopularFragment
+import com.app.neomu_kotlin.common.constanse.ConstCommon
 import com.not.app.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.tb_main.*
 import org.jetbrains.anko.startActivity
 
-open class ToolbarActivity: BaseActivity(){
+open class ToolbarActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,8 @@ open class ToolbarActivity: BaseActivity(){
         actionbar?.setDisplayShowTitleEnabled(false)
         toolbar.setNavigationIcon(resources.getDrawable(R.drawable.ic_menu_black_24dp))
         val actionBarDrawerToggle = ActionBarDrawerToggle(
-            this, draw_main, toolbar, 0,0)
+            this, draw_main, toolbar, 0, 0
+        )
         draw_main.setDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
     }
@@ -43,15 +43,16 @@ open class ToolbarActivity: BaseActivity(){
     }
 
     fun getFragmentPagerAdapter(): FragmentPagerAdapter {
-        val fragmentPagerAdapter = object: FragmentPagerAdapter(supportFragmentManager) {
+        val fragmentPagerAdapter = object : FragmentPagerAdapter(supportFragmentManager) {
             val fragmentArray = arrayListOf<Fragment>(
                 PopularFragment(), NewFragment(), NearFragment()
             )
 
             val fragmentName = arrayListOf<String>(
-                CommonConstance.FRAGMENT_TAB_NAME_POPULAR,
-                CommonConstance.FRAGMENT_TAB_NAME_NEW,
-                CommonConstance.FRAGMENT_TAB_NAME_NEAR)
+                ConstCommon.FRAGMENT_TAB_NAME_POPULAR,
+                ConstCommon.FRAGMENT_TAB_NAME_NEW,
+                ConstCommon.FRAGMENT_TAB_NAME_NEAR
+            )
 
             override fun getItem(position: Int): Fragment {
                 return fragmentArray[position]
@@ -70,7 +71,7 @@ open class ToolbarActivity: BaseActivity(){
     }
 
     override fun onClick(view: View?) {
-        when(view?.id) {
+        when (view?.id) {
             R.id.iv_rightSearch -> {
                 startActivity<SearchActivity>()
                 finish()

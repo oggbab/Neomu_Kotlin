@@ -1,6 +1,6 @@
 package neomu.kotlin.common.constanse
 
-open class ValidationConstance {
+open class ConstValidation {
     companion object {
         const val MSG_EMPTY_EMAIL = "d"
         const val MSG_EMPTY_NICKNAME = "d"

@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.neomu_kotlin.R
 import com.app.neomu_kotlin.app.club.fragment.adapter.FirebaseAdapter
-import com.app.neomu_kotlin.common.constanse.FirebaseDbConstance
 import com.app.neomu_kotlin.common.util.ClickListenerImpl
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.Query
 import com.not.app.club.Club_New_Activity
 import kotlinx.android.synthetic.main.fragment_main.*
 import neomu.kotlin.common.fragment.BaseFragment

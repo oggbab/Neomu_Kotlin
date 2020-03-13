@@ -38,7 +38,7 @@ public class Post {
         this.date = date;
         this.time = time;
 /*
-        this.bg_img = bg_img;*/ㅁㄴㅇ
+        this.bg_img = bg_img;*/
     }
 
     // 맵형태로 넣기

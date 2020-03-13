@@ -1,8 +1,11 @@
 package neomu.kotlin.common.util
 
 import android.app.Activity
+import android.os.Debug
+import android.util.Log
+import android.widget.Toast
 import com.app.neomu_kotlin.app.intro.model.PostModel
-import com.app.neomu_kotlin.common.constanse.FirebaseDbConstance
+import com.app.neomu_kotlin.common.constanse.ConstFirebaseDb
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -44,65 +47,88 @@ open class FirebaseUtil {
 
         fun getDatabaseReferenceInUsers() : DatabaseReference? {
             val databaseRef = getDatabaseInstance().getReference(
-                FirebaseDbConstance.FIREBASE_DB_CULUMS_USER)
+                ConstFirebaseDb.FIREBASE_DB_CULUMS_USER)
             return databaseRef
         }
 
         fun getDatabaseReferenceInPosts() : DatabaseReference? {
             val databaseRef = getDatabaseInstance().getReference()
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_POSTS)
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_POST_KEY)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_POSTS)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_POST_KEY)
             return databaseRef
         }
 
         fun getDatabaseReferenceInPostChildUser(userId: String): DatabaseReference? {
             val databaseRef = getDatabaseInstance().getReference()
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_USER)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_USER)
                 .child(userId)
             return databaseRef
         }
 
         fun getDatabaseReferenceInPostComment(): DatabaseReference? {
             val databaseRef = getDatabaseInstance().getReference()
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_COMMENT)
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_POST_KEY)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_COMMENT)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_POST_KEY)
             return databaseRef
         }
 
         fun getDatabaseReferenceInComment() : DatabaseReference? {
             val databaseRef = getDatabaseInstance().getReference()
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_COMMENT)
-                .child(FirebaseDbConstance.FIREBASE_DB_CULUMS_POST_KEY)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_COMMENT)
+                .child(ConstFirebaseDb.FIREBASE_DB_CULUMS_POST_KEY)
             return databaseRef
         }
 
         fun getDatabaseRefInGlobalPost(key: String): DatabaseReference? {
-            val globalPostRef = getDatabaseReference()
-            globalPostRef?.child(FirebaseDbConstance.FIREBASE_DB_CULUMS_POSTS)
-            globalPostRef?.child(key)
-            return globalPostRef
+            val ref = getDatabaseReference()
+            ref?.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_POSTS)
+            ref?.child(key)
+            return ref
         }
+
+        fun getDatabaseRefInChatUserList(chatName: String): DatabaseReference? {
+            val ref = getDatabaseReference()
+            ref?.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_CHAT)
+            ref?.child(chatName)
+            ref?.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_USERS_LIST)
+            return ref
+        }
+
+        fun pushUserInRef(userName: String, chatName: String): DatabaseReference? {
+            var ref = getDatabaseRefInChatUserList(chatName = chatName)
+            ref?.push()
+            ref?.setValue(userName)
+            return ref
+        }
+
+        fun getDatabaseRefInChatName(chatName: String): DatabaseReference? {
+            val ref = getDatabaseReference()
+            ref?.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_CHAT)
+            ref?.child(chatName)
+            return ref
+        }
+
 
         fun getDatabaseRefInUserPost(key: String): DatabaseReference? {
             val userPostRef = getDatabaseReference()
-            userPostRef?.child(FirebaseDbConstance.FIREBASE_DB_CULUMS_USER_POSTS)
+            userPostRef?.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_USER_POSTS)
             userPostRef?.child(key)
             return userPostRef
         }
 
         fun getDatabaseUserName() {
-            getDatabaseReferenceInUsers()?.orderByChild(FirebaseDbConstance.FIREBASE_DB_CULUMS_EMAIL)
+/*            getDatabaseReferenceInUsers()?.orderByChild(ConstFirebaseDb.FIREBASE_DB_CULUMS_EMAIL)
                 ?.addListenerForSingleValueEvent(object :
                     ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for (childDataSnapshot in dataSnapshot.children) {
-                            User.nickName = childDataSnapshot.child(FirebaseDbConstance.FIREBASE_DB_CULUMS_NICKNAME).value as String?
+                            User.nickName = childDataSnapshot.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_NICKNAME).value as String?
                         }
                         User().setNickName(User.nickName)
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {}
-                })
+                })*/
         }
 
         fun getFirebaseUser() : FirebaseUser? {
@@ -165,8 +191,8 @@ open class FirebaseUtil {
             val key = getDatabaseReferenceInPosts()?.push()?.key
             val userMap = post.toMap()
             val mapForUpdate = HashMap<String, Any>()
-            mapForUpdate.put(FirebaseDbConstance.UPDATE_CHILD_PATH_POST + key, userMap)
-            mapForUpdate.put(FirebaseDbConstance.UPDATE_CHILD_PATH_USER_POST + post.userId + FirebaseDbConstance.UPDATE_CHILD_PATH_SLASH + key, userMap)
+            mapForUpdate.put(ConstFirebaseDb.UPDATE_CHILD_PATH_POST + key, userMap)
+            mapForUpdate.put(ConstFirebaseDb.UPDATE_CHILD_PATH_USER_POST + post.userId + ConstFirebaseDb.UPDATE_CHILD_PATH_SLASH + key, userMap)
 
             getDatabaseReference()?.updateChildren(mapForUpdate)
         }

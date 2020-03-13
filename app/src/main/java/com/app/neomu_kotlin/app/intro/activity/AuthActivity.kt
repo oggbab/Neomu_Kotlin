@@ -3,7 +3,7 @@ package com.app.neomu_kotlin.app.main.activity
 import android.content.Intent
 import android.os.Bundle
 import com.app.neomu_kotlin.R
-import com.app.neomu_kotlin.common.constanse.CommonConstance
+import com.app.neomu_kotlin.common.constanse.ConstCommon
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -38,7 +38,7 @@ class AuthActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == CommonConstance.GOOGLE_SIGN_IN_API_REQUEST_CODE) {
+        if (requestCode == ConstCommon.GOOGLE_SIGN_IN_API_REQUEST_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
 
             if (result.isSuccess) {

@@ -5,13 +5,13 @@ import android.view.View
 import android.widget.RadioButton
 import com.app.neomu_kotlin.R
 import com.app.neomu_kotlin.app.main.model.UserInfoModel
-import com.app.neomu_kotlin.common.constanse.CommonConstance
+import com.app.neomu_kotlin.common.constanse.ConstCommon
 import com.google.firebase.database.FirebaseDatabase
 import com.app.neomu_kotlin.common.activity.BaseActivity
-import com.app.neomu_kotlin.common.constanse.FirebaseDbConstance
+import com.app.neomu_kotlin.common.constanse.ConstFirebaseDb
 import kotlinx.android.synthetic.main.activity_join.*
 import kotlinx.android.synthetic.main.activity_login.*
-import neomu.kotlin.common.constanse.ValidationConstance
+import neomu.kotlin.common.constanse.ConstValidation
 import neomu.kotlin.common.util.ValidationUtil.Companion.isSuccessSignInFirebaseAuth
 import org.jetbrains.anko.toast
 
@@ -29,14 +29,14 @@ class JoinActivity : BaseActivity() {
         if (result) {
             addNewAccoutInFirebase()
         } else {
-            toast(ValidationConstance.MSG_INVALID_PW_MATCH)
+            toast(ConstValidation.MSG_INVALID_PW_MATCH)
         }
     }
 
     fun addNewAccoutInFirebase() {
         var userInfoModel = UserInfoModel(getUserNickNameForJoin(), getUserEmailForJoin(), getUserGenderForJoin(), getUserBirthForJoin())
         val firebaseDbReference = FirebaseDatabase.getInstance().getReference()
-        firebaseDbReference.child(FirebaseDbConstance.FIREBASE_DB_CULUMS_USER).setValue(userInfoModel)
+        firebaseDbReference.child(ConstFirebaseDb.FIREBASE_DB_CULUMS_USER).setValue(userInfoModel)
     }
 
 
@@ -61,7 +61,7 @@ class JoinActivity : BaseActivity() {
     }
 
     private fun getUserBirthForJoin() : String {
-        val birth = picker_year.value.toString() + CommonConstance.TEXT_NUMBERPICKER_YEAR + picker_month.value.toString() + CommonConstance.TEXT_NUMBERPICKER_MONTH
+        val birth = picker_year.value.toString() + ConstCommon.TEXT_NUMBERPICKER_YEAR + picker_month.value.toString() + ConstCommon.TEXT_NUMBERPICKER_MONTH
         return if(birth.isNullOrEmpty()) "" else birth
     }
 

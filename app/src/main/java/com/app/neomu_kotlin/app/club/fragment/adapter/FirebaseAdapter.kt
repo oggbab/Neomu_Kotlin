@@ -3,7 +3,7 @@ package com.app.neomu_kotlin.app.club.fragment.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.app.neomu_kotlin.R
-import com.app.neomu_kotlin.common.constanse.FirebaseDbConstance
+import com.app.neomu_kotlin.common.constanse.ConstFirebaseDb
 import com.app.neomu_kotlin.common.util.ClickListenerImpl
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.*
@@ -41,13 +41,13 @@ class FirebaseAdapter() :
 
     private fun onStarClicked() {
         FirebaseUtil.getDatabaseRefInGlobalPost(
-            FirebaseDbConstance.FIREBASE_DB_CULUMS_POSTS
+            ConstFirebaseDb.FIREBASE_DB_CULUMS_POSTS
         )?.let {
             onTransaction(it)
         }
 
         FirebaseUtil.getDatabaseRefInUserPost(
-            FirebaseDbConstance.FIREBASE_DB_CULUMS_USER_POSTS
+            ConstFirebaseDb.FIREBASE_DB_CULUMS_USER_POSTS
         )?.let {
             onTransaction(it)
         }

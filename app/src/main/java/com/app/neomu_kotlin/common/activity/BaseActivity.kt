@@ -2,23 +2,25 @@ package com.app.neomu_kotlin.common.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
-import com.app.neomu_kotlin.R
-import com.app.neomu_kotlin.common.constanse.CommonConstance
-import com.google.firebase.auth.FirebaseAuth
-import com.not.app.club.NearFragment
-import com.not.app.club.NewFragment
-import com.not.app.club.PopularFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.app.neomu_kotlin.common.util.FragmentUtilImpl
 
-open class BaseActivity : AppCompatActivity(), View.OnClickListener {
+open class BaseActivity : AppCompatActivity(), View.OnClickListener, FragmentUtilImpl {
+
+    lateinit var mFragmentManager : FragmentManager
+    lateinit var mFragmentTransition : FragmentTransaction
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    init {
+        mFragmentManager = supportFragmentManager
+        mFragmentTransition = mFragmentManager.beginTransaction()
     }
 
     override fun onBackPressed() {
@@ -26,5 +28,22 @@ open class BaseActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
+
+    }
+
+    override fun addFragmnet(fragment: Fragment, containerId: Int) {
+        mFragmentTransition.add(containerId, fragment)
+        mFragmentTransition.addToBackStack(null)
+        mFragmentTransition.commitAllowingStateLoss()
+
+    }
+
+    override fun replaceFragment(fragment: Fragment, containerId: Int) {
+        mFragmentTransition.replace(containerId, fragment)
+        mFragmentTransition.commitAllowingStateLoss()
+    }
+
+    override fun finishFragment() {
+        this.finish()
     }
 }

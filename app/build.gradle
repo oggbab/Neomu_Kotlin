@@ -54,6 +54,7 @@ dependencies {
 
     //new library
     implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     // Retrofit, Gson, RxAdapter
 //    implementation 'com.squareup.retrofit2:retrofit:2.4.0'

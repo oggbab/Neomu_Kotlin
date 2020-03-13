@@ -1,6 +1,6 @@
 package com.app.neomu_kotlin.common.constanse
 
-open class CommonConstance {
+open class ConstCommon {
 
     companion object {
         val FRAGMENT_TAB_NAME_POPULAR = "인기있는"
