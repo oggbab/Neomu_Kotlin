@@ -3,16 +3,15 @@ package com.app.neomu_kotlin.app.club.fragment.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.app.neomu_kotlin.R
+import com.app.neomu_kotlin.app.intro.model.PostModel
 import com.app.neomu_kotlin.common.constanse.ConstFirebaseDb
 import com.app.neomu_kotlin.common.util.ClickListenerImpl
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.*
-import com.not.app.models.Post
-import com.not.app.viewholder.PostViewHolder
 import neomu.kotlin.common.util.FirebaseUtil
 
 class FirebaseAdapter() :
-    FirebaseRecyclerAdapter<Post, PostViewHolder>(FirebaseUtil.getFirebaseRecyclerOption()) {
+    FirebaseRecyclerAdapter<PostModel, PostViewHolder>(FirebaseUtil.getFirebaseRecyclerOption()) {
 
     constructor(listener: ClickListenerImpl) : this() {
         this.listener = listener
@@ -26,7 +25,7 @@ class FirebaseAdapter() :
         return postViewHolder
     }
 
-    override fun onBindViewHolder(viewHolder: PostViewHolder, position: Int, model: Post) {
+    override fun onBindViewHolder(viewHolder: PostViewHolder, position: Int, model: PostModel) {
         val postReference = getRef(position)
         val postKey = postReference.key
 
@@ -34,9 +33,9 @@ class FirebaseAdapter() :
             listener.onClicked()
         }
 
-        viewHolder.bindToPost(model) {
+/*        viewHolder.bindToPost(model) {
             onStarClicked()
-        }
+        }*/
     }
 
     private fun onStarClicked() {
@@ -56,7 +55,8 @@ class FirebaseAdapter() :
     private fun onTransaction(postRef: DatabaseReference) {
         postRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(data: MutableData): Transaction.Result {
-                var post = data.getValue(Post::class.java)
+/*
+                var post = data.getValue(PostModel::class.java)
                 val userId = FirebaseUtil.getFirebaseUserId()
                 if (post?.like?.containsKey(userId)!!) {
                     post.likeCount = post.likeCount - 1
@@ -66,6 +66,7 @@ class FirebaseAdapter() :
                     post.like.put(userId, true)
                 }
                 data.value = post
+*/
 
                 return Transaction.success(data)
             }

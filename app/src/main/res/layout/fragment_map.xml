@@ -14,13 +14,13 @@
         android:layout_weight="8">
 
         <EditText
-            android:id="@+id/et_mapSearch"
+            android:id="@+id/et_map_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter the Address." />
 
         <Button
-            android:id="@+id/btn_mapSearch"
+            android:id="@+id/btn_map_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Search" />

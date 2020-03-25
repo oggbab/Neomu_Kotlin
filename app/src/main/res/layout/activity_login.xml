@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6981EC"
+    android:background="@color/intro_backgroud"
     android:orientation="vertical"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    tools:context=".app.main.LoginActivity">
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,8 +40,9 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/login_id"
+                    android:id="@+id/et_login_id"
                     style="@style/main_edittext"
+                    android:text="oggbab@nate.com"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round"
@@ -56,17 +55,18 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/login_pw"
+                    android:id="@+id/et_login_pw"
                     style="@style/main_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round"
                     android:inputType="textPassword"
+                    android:text="wjddyddnd1"
                     android:hint="비밀번호 입력" />
 
 
                 <Button
-                    android:id="@+id/login_btn"
+                    android:id="@+id/btn_login_m"
                     style="@style/main_loginBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/main_linkText"
+                    android:id="@+id/tv_login_link"
                     style="@style/main_linkText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

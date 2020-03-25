@@ -1,11 +1,11 @@
-package com.not.app.club.util;
+package com.app.neomu_kotlin.app.club.fragment.adapter;
 
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.neomu.neomu.R;
+import com.app.neomu_kotlin.R;
 
 class CommentViewHolder extends RecyclerView.ViewHolder {
 

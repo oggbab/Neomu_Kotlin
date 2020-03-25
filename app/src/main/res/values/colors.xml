@@ -18,6 +18,7 @@
 <resources>
 
     <!--<color name="navdrawer_statusbar_color">?attr/colorPrimary</color>-->
+    <color name="intro_backgroud">#6981EC</color>
     <color name="navdrawer_background">#fafafa</color>
     <color name="navdrawer_text_color">@color/abc_primary_text_material_light</color>
     <color name="navdrawer_subheader_color">@color/abc_secondary_text_material_light</color>

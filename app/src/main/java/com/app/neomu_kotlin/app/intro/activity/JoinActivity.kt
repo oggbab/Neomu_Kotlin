@@ -46,7 +46,7 @@ class JoinActivity : BaseActivity() {
     }
 
     private fun getUserPwForJoin() : String {
-        val password = login_pw.text.toString()
+        val password = et_login_pw.text.toString()
         return if(password.isNullOrEmpty()) "" else password
     }
 

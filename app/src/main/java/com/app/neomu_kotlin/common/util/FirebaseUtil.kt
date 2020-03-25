@@ -13,8 +13,6 @@ import com.google.firebase.database.*
 import com.google.firebase.remoteconfig.BuildConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.not.app.models.Post
-import com.not.app.models.User
 
 
 open class FirebaseUtil {
@@ -25,6 +23,35 @@ open class FirebaseUtil {
         private lateinit var mFirebaseAuth: FirebaseAuth
         private lateinit var mDatabaseReference: DatabaseReference
         private lateinit var mFirebaseDatabase: FirebaseDatabase
+        private lateinit var fireBaseAuth: FirebaseAuth
+
+        fun isSuccessSignInFirebaseAuth(activity: Activity, userId: String, userPw: String) : Boolean {
+            fireBaseAuth = FirebaseAuth.getInstance()
+
+            val id = "oggbab@nate.com"
+            val pw = "wjddyddnd1"
+
+            fireBaseAuth.createUserWithEmailAndPassword(id, pw)
+                .addOnCompleteListener(activity) {
+                    if (it.isSuccessful) {
+                        Toast.makeText(activity,"join complete",Toast.LENGTH_SHORT).show()
+                    } else {
+                    }
+                }
+
+
+
+            var result = false
+            fireBaseAuth.signInWithEmailAndPassword(id, pw)
+                .addOnCompleteListener(activity) {
+                    Toast.makeText(activity,"sign complete",Toast.LENGTH_SHORT).show()
+                    if (it.isSuccessful) {
+                        result = true
+                    } else {
+                    }
+                }
+            return result
+        }
 
         fun getPostQuery(): Query {
             val postQuery = getDatabaseReference() as Query
@@ -146,10 +173,10 @@ open class FirebaseUtil {
             return getFirebaseUser()?.email
         }
 
-        fun getFirebaseRecyclerOption(): FirebaseRecyclerOptions<Post> {
+        fun getFirebaseRecyclerOption(): FirebaseRecyclerOptions<PostModel> {
             val postQuery = getPostQuery()
-            val options = FirebaseRecyclerOptions.Builder<Post>()
-                    .setQuery(postQuery, Post::class.java)
+            val options = FirebaseRecyclerOptions.Builder<PostModel>()
+                    .setQuery(postQuery, PostModel::class.java)
                     .build()
             return options
         }

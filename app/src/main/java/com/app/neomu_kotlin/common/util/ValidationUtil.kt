@@ -7,21 +7,25 @@ import com.google.firebase.auth.FirebaseAuth
 
 open class ValidationUtil {
 
-    lateinit var istener : ValidationUtilListener
-
     companion object {
 
+        lateinit var listener: ValidationUtilListener
+        lateinit var list: MutableList<String>
+
         fun isValidate(list : MutableList<String>, listener: ValidationUtilListener) {
-//        listener = ValidationUtilListene
+            this.listener = listener
+            this.list = list
         }
 
         fun isSuccessSignInFirebaseAuth(activity: Activity, userId: String, userPw: String) : Boolean {
             val fireBaseAuth = FirebaseAuth.getInstance()
             var result = false
             fireBaseAuth.signInWithEmailAndPassword(userId, userPw)
-                    .addOnCompleteListener(activity) {task ->
-                        fun onComplete(task: Task<AuthResult>) {
-                            result = task.isSuccessful
+                    .addOnCompleteListener(activity) {
+                        if (it.isSuccessful) {
+                            result = true
+                        } else {
+
                         }
                     }
             return result

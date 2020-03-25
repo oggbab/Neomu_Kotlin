@@ -10,14 +10,14 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_new"
-        android:label="@string/app_name"
+        android:label="너무"
         android:roundIcon="@mipmap/ic_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize"
         android:launchMode="singleTask"
         >
-        <activity android:name="com.not.app.main.SpalshActivity">
+        <activity android:name="neomu.kotlin.app.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,18 +27,13 @@
         <activity android:name="neomu.kotlin.app.main.LoginActivity"/>
         <activity android:name=".app.main.activity.AuthActivity"/>
         <activity android:name="neomu.kotlin.app.main.JoinActivity"/>
-        <activity android:name="com.not.app.club.Club_New_Activity"/>
+        <activity android:name=".app.club.activity.ClubActivity"/>
         <activity android:name=".app.club.activity.MainActivity"/>
         <activity android:name=".app.club.activity.PostDetailActivity"/>
-        <activity android:name="com.not.app.chat.ChatActivity"/>
-        <activity android:name="com.not.app.mypage.MypageActivity" />
-        <activity android:name="com.not.app.map.MapsActivity"/>
-        <activity android:name="com.not.app.map.MapyActivity"/>
-        <activity android:name="com.not.app.search.SearchActivity"/>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+        <activity android:name=".app.chat.activity.ChatActivity"/>
+        <activity android:name=".app.mypage.activity.MyPageActivity" />
+        <activity android:name=".app.map.activity.MapActivity"/>
+<!--        <activity android:name="com.not.app.search.SearchActivity"/>-->
 
     </application>
 </manifest>

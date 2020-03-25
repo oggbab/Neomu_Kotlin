@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.AlertDialog
 import androidx.core.content.ContextCompat.startActivity
 import com.app.neomu_kotlin.common.constanse.ConstDialog
-import com.not.app.chat.ChatActivity
 
 class CusomAlertDialog {
 

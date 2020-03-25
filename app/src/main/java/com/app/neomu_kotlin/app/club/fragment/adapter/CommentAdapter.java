@@ -1,4 +1,4 @@
-package com.not.app.club.util;
+package com.app.neomu_kotlin.app.club.fragment.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.neomu_kotlin.R;
+import com.app.neomu_kotlin.app.intro.model.CommentModel;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.neomu.neomu.R;
-import com.not.app.models.Comment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
     private ChildEventListener mChildEventListener;
 
     private List<String> mCommentIds = new ArrayList<>();
-    private List<Comment> mComments = new ArrayList<>();
+    private List<CommentModel> mComments = new ArrayList<>();
 
     public CommentAdapter(final Context context, DatabaseReference ref) {
         mContext = context;
@@ -39,7 +39,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
                 Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
                 // A new comment has been added, add it to the displayed list
-                Comment comment = dataSnapshot.getValue(Comment.class);
+                CommentModel comment = dataSnapshot.getValue(CommentModel.class);
 
                 // Update RecyclerView
                 mCommentIds.add(dataSnapshot.getKey());
@@ -52,7 +52,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
             public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
                 Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
 
-                Comment newComment = dataSnapshot.getValue(Comment.class);
+                CommentModel newComment = dataSnapshot.getValue(CommentModel.class);
                 String commentKey = dataSnapshot.getKey();
 
                 // [START_EXCLUDE]
@@ -95,7 +95,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
             public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
                 Log.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
 
-                Comment movedComment = dataSnapshot.getValue(Comment.class);
+                CommentModel movedComment = dataSnapshot.getValue(CommentModel.class);
                 String commentKey = dataSnapshot.getKey();
 
             }
@@ -118,9 +118,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
 
     @Override
     public void onBindViewHolder(CommentViewHolder holder, int position) {
-        Comment comment = mComments.get(position);
-        holder.authorView.setText(comment.nickName + " 님:");
-        holder.bodyView.setText(comment.text);
+        CommentModel comment = mComments.get(position);
+        holder.authorView.setText(comment.getNickName() + " 님:");
+        holder.bodyView.setText(comment.getText());
     }
 
     @Override
@@ -135,4 +135,3 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
     }
 
 }
-

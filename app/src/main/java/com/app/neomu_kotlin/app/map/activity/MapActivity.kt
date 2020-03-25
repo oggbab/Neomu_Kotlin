@@ -1,10 +1,9 @@
-package com.app.neomu_kotlin.app.map
+package com.app.neomu_kotlin.app.map.activity
 
 import android.os.Bundle
 import com.app.neomu_kotlin.R
+import com.app.neomu_kotlin.app.map.fragment.MapFragment
 import com.app.neomu_kotlin.common.activity.BaseActivity
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 
 class MapActivity : BaseActivity() {
 

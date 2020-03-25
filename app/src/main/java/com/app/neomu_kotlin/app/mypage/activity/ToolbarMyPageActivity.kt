@@ -15,13 +15,12 @@ import com.app.neomu_kotlin.common.constanse.ConstCommon
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
-open class ToolbarActivity : BaseActivity() {
+open class ToolbarMyPageActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setCustomToolbar()
         setPagerAdapterInViewPager()
-        setContentView(R.layout.activity_main)
     }
 
     fun setCustomToolbar() {
@@ -49,9 +48,9 @@ open class ToolbarActivity : BaseActivity() {
             )
 
             val fragmentName = arrayListOf<String>(
-                ConstCommon.FRAGMENT_TAB_NAME_POPULAR,
-                ConstCommon.FRAGMENT_TAB_NAME_NEW,
-                ConstCommon.FRAGMENT_TAB_NAME_NEAR
+                ConstCommon.FRAGMENT_TAB_NAME_JOIN,
+                ConstCommon.FRAGMENT_TAB_NAME_COMP,
+                ConstCommon.FRAGMENT_TAB_NAME_LIKE
             )
 
             override fun getItem(position: Int): Fragment {

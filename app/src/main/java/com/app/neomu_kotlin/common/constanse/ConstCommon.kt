@@ -7,6 +7,10 @@ open class ConstCommon {
         val FRAGMENT_TAB_NAME_NEW = "새로운"
         val FRAGMENT_TAB_NAME_NEAR = "근처에"
 
+        val FRAGMENT_TAB_NAME_JOIN = "참여중"
+        val FRAGMENT_TAB_NAME_COMP = "완료한"
+        val FRAGMENT_TAB_NAME_LIKE = "즐겨찾기"
+
         val TEXT_NUMBERPICKER_YEAR = "년"
         val TEXT_NUMBERPICKER_MONTH = "월"
 

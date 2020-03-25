@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.neomu_kotlin.R
+import com.app.neomu_kotlin.app.club.activity.ClubActivity
 import com.app.neomu_kotlin.app.club.fragment.adapter.FirebaseAdapter
 import com.app.neomu_kotlin.common.util.ClickListenerImpl
-import com.not.app.club.Club_New_Activity
 import kotlinx.android.synthetic.main.fragment_main.*
 import neomu.kotlin.common.fragment.BaseFragment
 import org.jetbrains.anko.support.v4.intentFor
@@ -40,7 +40,7 @@ open class MainFragment : BaseFragment() {
     private fun setAdapter() {
         val adapter = FirebaseAdapter(object : ClickListenerImpl{
             override fun onClicked() {
-                startActivity(intentFor<Club_New_Activity>().addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
+                startActivity(intentFor<ClubActivity>().addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
             }
         })
         rv_main.setHasFixedSize(true)
@@ -50,7 +50,7 @@ open class MainFragment : BaseFragment() {
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.btn_floating -> {
-                startActivity(intentFor<Club_New_Activity>().addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
+                startActivity(intentFor<ClubActivity>().addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
             }
         }
     }

@@ -12,9 +12,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.app.neomu_kotlin.R
 import com.app.neomu_kotlin.app.intro.model.PostModel
+import com.app.neomu_kotlin.app.map.activity.MapActivity
 import com.app.neomu_kotlin.common.constanse.ConstNetwork
-import com.not.app.map.MapyActivity
-import kotlinx.android.synthetic.main.activity_club.*
 import kotlinx.android.synthetic.main.fragment_club.*
 import neomu.kotlin.common.fragment.BaseFragment
 import neomu.kotlin.common.util.FirebaseUtil
@@ -40,7 +39,7 @@ class ClubFragment : BaseFragment() {
     override fun onClick(view: View?) {
         when(view?.id) {
             R.id.et_club_location -> {
-                val intent = Intent(activity, MapyActivity::class.java)
+                val intent = Intent(activity, MapActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivityForResult(intent, ConstNetwork.INTENT_REQUEST_CODE)
             }
